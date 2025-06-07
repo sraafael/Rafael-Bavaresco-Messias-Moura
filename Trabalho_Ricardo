@@ -1,0 +1,226 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cctype>
+using namespace std;
+
+// 1.1 Calculadora Simples
+class Calculadora
+{
+public:
+    double soma(double a, double b) { return a + b; }
+    double subtrai(double a, double b) { return a - b; }
+    double multiplica(double a, double b) { return a * b; }
+    double divide(double a, double b) { return b != 0 ? a / b : 0; }
+};
+
+// 1.2 Verificador de Palíndromos
+bool ehPalindromo(string palavra)
+{
+    string limpa;
+    for (char c : palavra)
+        if (!isspace(c))
+            limpa += tolower(c);
+    string invertida = limpa;
+    reverse(invertida.begin(), invertida.end());
+    return limpa == invertida;
+}
+
+// 1.3 Fatorial Recursivo
+unsigned long long fatorial(int n)
+{
+    if (n <= 1)
+        return 1;
+    return n * fatorial(n - 1);
+}
+
+// 1.4 Conversor de Temperaturas
+class ConversorTemperatura
+{
+public:
+    static double celsiusParaFahrenheit(double c) { return (c * 9.0 / 5.0) + 32; }
+    static double fahrenheitParaCelsius(double f) { return (f - 32) * 5.0 / 9.0; }
+};
+
+// 2.1 Maior e Menor Elemento em uma Matriz
+void maiorMenorMatriz()
+{
+    int m, n;
+    cout << "Linhas: ";
+    cin >> m;
+    cout << "Colunas: ";
+    cin >> n;
+    vector<vector<int>> matriz(m, vector<int>(n));
+    int maior, menor;
+    for (int i = 0; i < m; ++i)
+        for (int j = 0; j < n; ++j)
+        {
+            cout << "Elemento [" << i << "][" << j << "]: ";
+            cin >> matriz[i][j];
+            if (i == 0 && j == 0)
+                maior = menor = matriz[i][j];
+            else
+            {
+                if (matriz[i][j] > maior)
+                    maior = matriz[i][j];
+                if (matriz[i][j] < menor)
+                    menor = matriz[i][j];
+            }
+        }
+    cout << "Maior: " << maior << ", Menor: " << menor << endl;
+}
+
+// 2.2 Soma das Diagonais de uma Matriz Quadrada
+void somaDiagonais()
+{
+    int n;
+    cout << "Ordem da matriz quadrada: ";
+    cin >> n;
+    vector<vector<int>> mat(n, vector<int>(n));
+    int diagP = 0, diagS = 0;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+        {
+            cout << "Elemento [" << i << "][" << j << "]: ";
+            cin >> mat[i][j];
+            if (i == j)
+                diagP += mat[i][j];
+            if (i + j == n - 1)
+                diagS += mat[i][j];
+        }
+    cout << "Soma diagonal principal: " << diagP << endl;
+    cout << "Soma diagonal secundaria: " << diagS << endl;
+}
+
+// 3.1 Manipulando Dados de um Objeto
+class Numero
+{
+public:
+    int valor;
+    void imprime() { cout << "Valor: " << valor << endl; }
+};
+
+// 3.2 Trocando Valores entre Objetos
+class ValorContainer
+{
+public:
+    int valor;
+    ValorContainer(int v = 0) : valor(v) {}
+    void imprime() { cout << valor << endl; }
+};
+void trocarValores(ValorContainer &a, ValorContainer &b)
+{
+    int temp = a.valor;
+    a.valor = b.valor;
+    b.valor = temp;
+}
+
+// 4.1 Sistema de Gerenciamento de Funcionários
+class Funcionario
+{
+public:
+    string nome, departamento;
+    int id;
+    double salario;
+    Funcionario(string n, int i, double s, string d)
+        : nome(n), id(i), salario(s), departamento(d) {}
+};
+
+// 4.2 Agenda de Contatos
+class Contato
+{
+public:
+    string nome, telefone, email;
+    Contato(string n, string t, string e) : nome(n), telefone(t), email(e) {}
+};
+
+int main()
+{
+    // 1.1 Calculadora Simples
+    Calculadora calc;
+    double a, b;
+    cout << "Digite dois numeros: ";
+    cin >> a >> b;
+    // Exibe resultados das quatro operações básicas
+    cout << "Soma: " << calc.soma(a, b) << endl;
+    cout << "Subtracao: " << calc.subtrai(a, b) << endl;
+    cout << "Multiplicacao: " << calc.multiplica(a, b) << endl;
+    cout << "Divisao: " << calc.divide(a, b) << endl;
+
+    // 1.2 Verificador de Palíndromo
+    string palavra;
+    cout << "Digite uma palavra: ";
+    cin >> palavra;
+    // Verifica se a palavra é um palíndromo
+    cout << (ehPalindromo(palavra) ? "Eh palindromo" : "Nao eh palindromo") << endl;
+
+    // 1.3 Fatorial Recursivo
+    int n;
+    cout << "Digite um numero para fatorial: ";
+    cin >> n;
+    // Calcula o fatorial do número informado
+    cout << "Fatorial: " << fatorial(n) << endl;
+
+    // 1.4 Conversor de Temperatura
+    double temp;
+    cout << "Digite temperatura em Celsius: ";
+    cin >> temp;
+    // Converte Celsius para Fahrenheit
+    cout << "Em Fahrenheit: " << ConversorTemperatura::celsiusParaFahrenheit(temp) << endl;
+
+    // 2.1 Maior e menor em matriz
+    // Solicita e processa uma matriz, exibindo maior e menor elemento
+    maiorMenorMatriz();
+
+    // 2.2 Soma das diagonais
+    // Solicita e processa uma matriz quadrada, exibindo soma das diagonais
+    somaDiagonais();
+
+    // 3.1 Manipulando Dados de um Objeto
+    Numero num;
+    num.valor = 42;
+    // Imprime o valor do atributo do objeto Numero
+    num.imprime();
+
+    // 3.2 Trocando Valores entre Objetos
+    ValorContainer objA, objB;
+    cout << "Valor A: ";
+    cin >> objA.valor;
+    cout << "Valor B: ";
+    cin >> objB.valor;
+    // Troca os valores entre os objetos objA e objB
+    trocarValores(objA, objB);
+    cout << "Apos troca - A: ";
+    objA.imprime();
+    cout << "B: ";
+    objB.imprime();
+
+    // 4.1 Sistema de Gerenciamento de Funcionários
+    vector<Funcionario> funcionarios;
+    // Adiciona funcionários de exemplo
+    funcionarios.push_back(Funcionario("Joao", 1, 2000, "TI"));
+    funcionarios.push_back(Funcionario("Maria", 2, 3000, "RH"));
+    // Calcula e exibe o total de salários de um departamento específico
+    string dep = "TI";
+    double total = 0;
+    for (auto &f : funcionarios)
+        if (f.departamento == dep)
+            total += f.salario;
+    cout << "Total salarios " << dep << ": " << total << endl;
+
+    // 4.2 Agenda de Contatos
+    vector<Contato> contatos;
+    // Adiciona contatos de exemplo
+    contatos.push_back(Contato("Ana", "123", "ana@email.com"));
+    contatos.push_back(Contato("Beto", "456", "beto@email.com"));
+    // Procura contato pelo nome e exibe telefone e email
+    string busca;
+    cout << "Buscar contato: ";
+    cin >> busca;
+    for (auto &c : contatos)
+        if (c.nome == busca)
+            cout << "Tel: " << c.telefone << ", Email: " << c.email << endl;
+
+    return 0;
+}
