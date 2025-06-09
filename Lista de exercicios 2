@@ -1,0 +1,144 @@
+# Importa a biblioteca math para usar o valor de pi
+import math
+
+# Função para o problema do terreno
+def terreno():
+    # Lê as dimensões do terreno e o valor do metro quadrado, calcula área e preço do terreno
+    largura = float(input("Digite a largura do terreno: "))
+    comprimento = float(input("Digite o comprimento do terreno: "))
+    valor_m2 = float(input("Digite o valor do metro quadrado: "))
+    area = largura * comprimento  # cálculo da área do terreno
+    preco = area * valor_m2       # cálculo do preço do terreno
+    print(f"Area do terreno = {area:.2f}")
+    print(f"Preco do terreno = {preco:.2f}")
+
+# Função para o problema do retângulo
+def retangulo():
+    # Lê base e altura, calcula área, perímetro e diagonal do retângulo
+    base = float(input("Base do retangulo: "))
+    altura = float(input("Altura do retangulo: "))
+    area = base * altura  # área do retângulo
+    perimetro = 2 * (base + altura)  # perímetro do retângulo
+    diagonal = (base ** 2 + altura ** 2) ** 0.5  # diagonal pelo teorema de Pitágoras
+    print(f"AREA = {area:.4f}")
+    print(f"PERIMETRO = {perimetro:.4f}")
+    print(f"DIAGONAL = {diagonal:.4f}")
+
+# Função para o problema das idades
+def idades():
+    # Lê nome e idade de duas pessoas e calcula a média das idades
+    print("Dados da primeira pessoa:")
+    nome1 = input("Nome: ")
+    idade1 = int(input("Idade: "))
+    print("Dados da segunda pessoa:")
+    nome2 = input("Nome: ")
+    idade2 = int(input("Idade: "))
+    media = (idade1 + idade2) / 2  # média das idades
+    print(f"A idade média de {nome1} e {nome2} é de {media:.1f} anos")
+
+# Função para o problema da soma
+def soma():
+    # Lê dois valores inteiros e mostra a soma deles
+    x = int(input("Digite o valor de X: "))
+    y = int(input("Digite o valor de Y: "))
+    resultado = x + y  # soma dos valores
+    print(f"SOMA = {resultado}")
+
+# Função para o problema do troco
+def troco():
+    # Lê preço unitário, quantidade e dinheiro recebido, calcula o troco
+    preco_unitario = float(input("Preço unitário do produto: "))
+    quantidade = int(input("Quantidade comprada: "))
+    dinheiro = float(input("Dinheiro recebido: "))
+    troco = dinheiro - (preco_unitario * quantidade)  # cálculo do troco
+    print(f"TROCO = {troco:.2f}")
+
+# Função para o problema do círculo
+def circulo():
+    # Lê o raio de um círculo e calcula sua área
+    raio = float(input("Digite o valor do raio do circulo: "))
+    area = math.pi * raio ** 2  # cálculo da área do círculo
+    print(f"AREA = {area:.3f}")
+
+# Função para o problema do pagamento
+def pagamento():
+    # Lê nome, valor por hora e horas trabalhadas, calcula o pagamento
+    nome = input("Nome: ")
+    valor_hora = float(input("Valor por hora: "))
+    horas = int(input("Horas trabalhadas: "))
+    pagamento = valor_hora * horas  # cálculo do pagamento
+    print(f"O pagamento para {nome} deve ser {pagamento:.2f}")
+
+# Função para o problema do consumo
+def consumo():
+    # Lê distância percorrida e combustível gasto, calcula o consumo médio
+    distancia = int(input("Distancia percorrida: "))
+    combustivel = float(input("Combustível gasto: "))
+    consumo = distancia / combustivel  # cálculo do consumo médio
+    print(f"Consumo medio = {consumo:.3f}")
+
+# Função para o problema das medidas
+def medidas():
+    # Lê três medidas e calcula áreas de quadrado, triângulo e trapézio
+    a = float(input("Digite a medida A: "))
+    b = float(input("Digite a medida B: "))
+    c = float(input("Digite a medida C: "))
+    area_quadrado = a ** 2  # área do quadrado de lado A
+    area_triangulo = (a * b) / 2  # área do triângulo de base A e altura B
+    area_trapezio = ((a + b) * c) / 2  # área do trapézio de bases A e B e altura C
+    print(f"AREA DO QUADRADO = {area_quadrado:.4f}")
+    print(f"AREA DO TRIANGULO = {area_triangulo:.4f}")
+    print(f"AREA DO TRAPEZIO = {area_trapezio:.4f}")
+
+# Função para o problema da duração
+def duracao():
+    # Lê uma duração em segundos e converte para o formato horas:minutos:segundos
+    segundos = int(input("Digite a duracao em segundos: "))
+    horas = segundos // 3600  # calcula horas inteiras
+    minutos = (segundos % 3600) // 60  # calcula minutos restantes
+    segundos_restantes = segundos % 60  # calcula segundos restantes
+    print(f"{horas}:{minutos}:{segundos_restantes}")
+
+# Loop principal do menu
+while True:
+    # Exibe o menu de opções
+    print("\nMENU DE EXERCÍCIOS")
+    print("1 - Terreno")
+    print("2 - Retângulo")
+    print("3 - Idades")
+    print("4 - Soma")
+    print("5 - Troco")
+    print("6 - Círculo")
+    print("7 - Pagamento")
+    print("8 - Consumo")
+    print("9 - Medidas")
+    print("10 - Duração")
+    print("0 - Sair")
+    opcao = input("Escolha uma opção: ")
+
+    # Chama a função correspondente à opção escolhida
+    if opcao == "1":
+        terreno()
+    elif opcao == "2":
+        retangulo()
+    elif opcao == "3":
+        idades()
+    elif opcao == "4":
+        soma()
+    elif opcao == "5":
+        troco()
+    elif opcao == "6":
+        circulo()
+    elif opcao == "7":
+        pagamento()
+    elif opcao == "8":
+        consumo()
+    elif opcao == "9":
+        medidas()
+    elif opcao == "10":
+        duracao()
+    elif opcao == "0":
+        print("Saindo do programa. Até mais!")
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
