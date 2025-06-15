@@ -1,0 +1,319 @@
+import math
+
+# Problema 1: Notas
+class Aluno:
+    def __init__(self):
+        self.nota1 = 0.0
+        self.nota2 = 0.0
+
+    def ler_notas(self):
+        self.nota1 = float(input("Digite a primeira nota: "))
+        self.nota2 = float(input("Digite a segunda nota: "))
+
+    def nota_final(self):
+        return self.nota1 + self.nota2
+
+    def resultado(self):
+        nota = self.nota_final()
+        print(f"NOTA FINAL = {nota:.1f}")
+        if nota < 60.0:
+            print("REPROVADO")
+
+# Problema 2: Bhaskara
+class Bhaskara:
+    def __init__(self):
+        self.a = 0.0
+        self.b = 0.0
+        self.c = 0.0
+
+    def ler_coeficientes(self):
+        self.a = float(input("Coeficiente a: "))
+        self.b = float(input("Coeficiente b: "))
+        self.c = float(input("Coeficiente c: "))
+
+    def calcular_raizes(self):
+        delta = self.b**2 - 4*self.a*self.c
+        if delta < 0:
+            print("Esta equacao nao possui raizes reais")
+        else:
+            x1 = (-self.b + math.sqrt(delta)) / (2*self.a)
+            x2 = (-self.b - math.sqrt(delta)) / (2*self.a)
+            print(f"X1 = {x1:.4f}")
+            print(f"X2 = {x2:.4f}")
+
+# Problema 3: Menor de Três
+class MenorDeTres:
+    def __init__(self):
+        self.valores = []
+
+    def ler_valores(self):
+        self.valores.append(int(input("Primeiro valor: ")))
+        self.valores.append(int(input("Segundo valor: ")))
+        self.valores.append(int(input("Terceiro valor: ")))
+
+    def mostrar_menor(self):
+        print(f"MENOR = {min(self.valores)}")
+
+# Problema 4: Plano de Telefonia
+class PlanoTelefonia:
+    def __init__(self):
+        self.minutos = 0
+
+    def ler_minutos(self):
+        self.minutos = int(input("Digite a quantidade de minutos: "))
+
+    def calcular_valor(self):
+        valor = 50.0
+        if self.minutos > 100:
+            valor += (self.minutos - 100) * 2.0
+        print(f"Valor a pagar: R$ {valor:.2f}")
+
+# Problema 5: Troco ou Falta
+class Troco:
+    def __init__(self):
+        self.preco = 0.0
+        self.quantidade = 0
+        self.dinheiro = 0.0
+
+    def ler_dados(self):
+        self.preco = float(input("Preço unitário do produto: "))
+        self.quantidade = int(input("Quantidade comprada: "))
+        self.dinheiro = float(input("Dinheiro recebido: "))
+
+    def calcular_troco(self):
+        total = self.preco * self.quantidade
+        if self.dinheiro >= total:
+            print(f"TROCO = {self.dinheiro - total:.2f}")
+        else:
+            print(f"DINHEIRO INSUFICIENTE. FALTAM {total - self.dinheiro:.2f} REAIS")
+
+# Problema 6: Medidor de Glicose
+class Glicose:
+    def __init__(self):
+        self.valor = 0.0
+
+    def ler_valor(self):
+        self.valor = float(input("Digite a medida da glicose: "))
+
+    def classificar(self):
+        if self.valor <= 100:
+            print("Classificacao: normal")
+        elif self.valor <= 140:
+            print("Classificacao: elevado")
+        else:
+            print("Classificacao: diabetes")
+
+# Problema 7: Lançamento de Dardo
+class Dardo:
+    def __init__(self):
+        self.distancias = []
+
+    def ler_distancias(self):
+        print("Digite as tres distancias:")
+        for _ in range(3):
+            self.distancias.append(float(input()))
+
+    def maior_distancia(self):
+        print(f"MAIOR DISTANCIA = {max(self.distancias):.2f}")
+
+# Problema 8: Conversor de Temperatura
+class ConversorTemperatura:
+    def __init__(self):
+        self.escala = ""
+        self.temperatura = 0.0
+
+    def ler_dados(self):
+        self.escala = input("Voce vai digitar a temperatura em qual escala (C/F)? ").strip().upper()
+        if self.escala == "F":
+            self.temperatura = float(input("Digite a temperatura em Fahrenheit: "))
+        else:
+            self.temperatura = float(input("Digite a temperatura em Celsius: "))
+
+    def converter(self):
+        if self.escala == "F":
+            c = (5/9) * (self.temperatura - 32)
+            print(f"Temperatura equivalente em Celsius: {c:.2f}")
+        else:
+            f = (self.temperatura * 9/5) + 32
+            print(f"Temperatura equivalente em Fahrenheit: {f:.2f}")
+
+# Problema 9: Lanchonete
+class Lanchonete:
+    precos = {1: 5.00, 2: 3.50, 3: 4.80, 4: 8.90, 5: 7.32}
+
+    def __init__(self):
+        self.codigo = 0
+        self.quantidade = 0
+
+    def ler_pedido(self):
+        self.codigo = int(input("Codigo do produto comprado: "))
+        self.quantidade = int(input("Quantidade comprada: "))
+
+    def calcular_total(self):
+        total = self.precos[self.codigo] * self.quantidade
+        print(f"Valor a pagar: R$ {total:.2f}")
+
+# Problema 10: Múltiplos
+class Multiplos:
+    def __init__(self):
+        self.a = 0
+        self.b = 0
+
+    def ler_numeros(self):
+        print("Digite dois numeros inteiros:")
+        self.a = int(input())
+        self.b = int(input())
+
+    def verificar(self):
+        if self.a % self.b == 0 or self.b % self.a == 0:
+            print("Sao multiplos")
+        else:
+            print("Nao sao multiplos")
+
+# Problema 11: Aumento Salarial
+class AumentoSalarial:
+    def __init__(self):
+        self.salario = 0.0
+
+    def ler_salario(self):
+        self.salario = float(input("Digite o salario da pessoa: "))
+
+    def calcular_aumento(self):
+        if self.salario <= 1000.0:
+            perc = 20
+        elif self.salario <= 3000.0:
+            perc = 15
+        elif self.salario <= 8000.0:
+            perc = 10
+        else:
+            perc = 5
+        aumento = self.salario * perc / 100
+        novo = self.salario + aumento
+        print(f"Novo salario R$ {novo:.2f}")
+        print(f"Aumento R$ {aumento:.2f}")
+        print(f"Porcentagem = {perc}%")
+
+# Problema 12: Duração do Jogo
+class DuracaoJogo:
+    def __init__(self):
+        self.inicio = 0
+        self.fim = 0
+
+    def ler_horas(self):
+        self.inicio = int(input("Hora inicial: "))
+        self.fim = int(input("Hora final: "))
+
+    def calcular_duracao(self):
+        if self.inicio == self.fim:
+            duracao = 24
+        elif self.inicio < self.fim:
+            duracao = self.fim - self.inicio
+        else:
+            duracao = 24 - self.inicio + self.fim
+        print(f"O JOGO DUROU {duracao} HORA(S)")
+
+# Problema 13: Coordenadas Cartesianas
+class Coordenadas:
+    def __init__(self):
+        self.x = 0.0
+        self.y = 0.0
+
+    def ler_coordenadas(self):
+        self.x = float(input("Valor de X: "))
+        self.y = float(input("Valor de Y: "))
+
+    def verificar_quadrante(self):
+        if self.x == 0 and self.y == 0:
+            print("Origem")
+        elif self.x == 0:
+            print("Eixo Y")
+        elif self.y == 0:
+            print("Eixo X")
+        elif self.x > 0 and self.y > 0:
+            print("Q1")
+        elif self.x < 0 and self.y > 0:
+            print("Q2")
+        elif self.x < 0 and self.y < 0:
+            print("Q3")
+        else:
+            print("Q4")
+
+def main():
+    while True:
+        print("\nEscolha o problema para executar:")
+        print("1 - Notas")
+        print("2 - Bhaskara")
+        print("3 - Menor de Três")
+        print("4 - Plano de Telefonia")
+        print("5 - Troco ou Falta")
+        print("6 - Medidor de Glicose")
+        print("7 - Lançamento de Dardo")
+        print("8 - Conversor de Temperatura")
+        print("9 - Lanchonete")
+        print("10 - Múltiplos")
+        print("11 - Aumento Salarial")
+        print("12 - Duração do Jogo")
+        print("13 - Coordenadas Cartesianas")
+        print("0 - Sair")
+        opcao = input("Digite o número do problema: ")
+
+        if opcao == "1":
+            aluno = Aluno()
+            aluno.ler_notas()
+            aluno.resultado()
+        elif opcao == "2":
+            bhaskara = Bhaskara()
+            bhaskara.ler_coeficientes()
+            bhaskara.calcular_raizes()
+        elif opcao == "3":
+            menor = MenorDeTres()
+            menor.ler_valores()
+            menor.mostrar_menor()
+        elif opcao == "4":
+            plano = PlanoTelefonia()
+            plano.ler_minutos()
+            plano.calcular_valor()
+        elif opcao == "5":
+            troco = Troco()
+            troco.ler_dados()
+            troco.calcular_troco()
+        elif opcao == "6":
+            glicose = Glicose()
+            glicose.ler_valor()
+            glicose.classificar()
+        elif opcao == "7":
+            dardo = Dardo()
+            dardo.ler_distancias()
+            dardo.maior_distancia()
+        elif opcao == "8":
+            temp = ConversorTemperatura()
+            temp.ler_dados()
+            temp.converter()
+        elif opcao == "9":
+            lanche = Lanchonete()
+            lanche.ler_pedido()
+            lanche.calcular_total()
+        elif opcao == "10":
+            mult = Multiplos()
+            mult.ler_numeros()
+            mult.verificar()
+        elif opcao == "11":
+            aumento = AumentoSalarial()
+            aumento.ler_salario()
+            aumento.calcular_aumento()
+        elif opcao == "12":
+            jogo = DuracaoJogo()
+            jogo.ler_horas()
+            jogo.calcular_duracao()
+        elif opcao == "13":
+            coord = Coordenadas()
+            coord.ler_coordenadas()
+            coord.verificar_quadrante()
+        elif opcao == "0":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
