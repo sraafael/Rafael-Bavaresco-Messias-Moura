@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      spacing="10" alignment="TOP_CENTER"
+      prefWidth="800" prefHeight="600">
+
+    <!-- Título -->
+    <Label text="Minha Lista de Tarefas" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <!-- Tabela de Tarefas -->
+    <TableView fx:id="tabelaTarefas" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colunaDescricao" text="Descrição" prefWidth="500"/>
+            <TableColumn fx:id="colunaStatus" text="Concluída" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Campo de texto + Botão -->
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="campoTarefa" promptText="Digite uma nova tarefa..." prefWidth="500"/>
+        <Button text="Adicionar" fx:id="botaoAdicionar"/>
+    </HBox>
+
+</VBox>

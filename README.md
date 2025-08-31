@@ -1,69 +1,59 @@
-# Como Executar um Código Python no VS Code
+# ListadetarefasWeb
 
-Este guia rápido e intuitivo explica como rodar um código Python usando o Visual Studio Code (VS Code). Siga os passos abaixo para configurar seu ambiente e executar seus scripts Python facilmente!
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
 
----
+## Development server
 
-## Pré-requisitos
+To start a local development server, run:
 
-- **VS Code instalado:** [Baixe aqui](https://code.visualstudio.com/)
-- **Python instalado:** [Baixe aqui](https://www.python.org/downloads/)
-- **Extensão Python para VS Code instalada**
+```bash
+ng serve
+```
 
----
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Passo a Passo
+## Code scaffolding
 
-### 1. Instale a extensão Python no VS Code
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-1. Abra o VS Code.
-2. Clique no ícone de **Extensões** na barra lateral esquerda (ou pressione `Ctrl+Shift+X`).
-3. Busque por **Python** e instale a extensão oficial da Microsoft.
+```bash
+ng generate component component-name
+```
 
-### 2. Abra o seu projeto ou arquivo Python
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-- Clique em **Arquivo > Abrir Pasta** ou **Arquivo > Abrir Arquivo** e selecione o arquivo `.py` que deseja executar.
+```bash
+ng generate --help
+```
 
-### 3. Selecione o interpretador Python
+## Building
 
-1. Pressione `Ctrl+Shift+P` para abrir a paleta de comandos.
-2. Digite `Python: Selecionar Interpretador` e escolha a versão do Python que você instalou.
+To build the project run:
 
-### 4. Execute seu código Python
+```bash
+ng build
+```
 
-Você tem algumas opções simples:
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-#### Opção 1: Botão "Executar"
+## Running unit tests
 
-- Com o arquivo Python aberto, clique no botão **Executar** (ícone de triângulo ▶️) no canto superior direito do editor.
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-#### Opção 2: Menu de contexto
+```bash
+ng test
+```
 
-- Clique com o botão direito sobre o código e selecione **Executar Python no Terminal**.
+## Running end-to-end tests
 
-#### Opção 3: Usando o Terminal
+For end-to-end (e2e) testing, run:
 
-1. Abra o terminal integrado (`Ctrl+` ou `Ctrl+Shift+P` e digite `Terminal: Novo Terminal`).
-2. Digite o comando abaixo e pressione Enter:
-   ```bash
-   python nome_do_seu_arquivo.py
-   ```
-   Substitua `nome_do_seu_arquivo.py` pelo nome real do seu arquivo.
+```bash
+ng e2e
+```
 
----
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Dicas
+## Additional Resources
 
-- Se precisar de entradas do usuário, use a função `input()` no seu código.
-- Mensagens de erro aparecerão no terminal integrado, facilitando o debug.
-
----
-
-## Recursos Úteis
-
-- [Documentação oficial do Python para VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Documentação do Python](https://docs.python.org/pt-br/3/)
-
----
-
-Pronto! Agora você já sabe como executar códigos Python no VS Code de forma prática e rápida. 🚀
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

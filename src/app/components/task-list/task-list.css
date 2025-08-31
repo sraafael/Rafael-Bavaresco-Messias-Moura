@@ -1,0 +1,177 @@
+/* ========================================
+  Váriaveis de Cores para fácil customização
+  ========================================
+*/
+:host {
+  --cor-primaria: #007bff;
+  --cor-sucesso: #28a745;
+  --cor-perigo: #dc3545;
+  --cor-fundo: #f4f7f6;
+  --cor-container: #ffffff;
+  --cor-texto: #333;
+  --cor-texto-claro: #888;
+  --cor-borda: #dee2e6;
+  --sombra-caixa: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+  Estilo do Container Principal
+  ========================================
+*/
+.container {
+  max-width: 650px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--cor-container);
+  border-radius: 12px;
+  box-shadow: var(--sombra-caixa);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: var(--cor-texto);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+/* ========================================
+  Formulário para Adicionar Tarefas
+  ========================================
+*/
+.form-add {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.form-add input[type="text"] {
+  flex-grow: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px 0 0 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.form-add input[type="text"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.form-add button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  background-color: var(--cor-primaria);
+  color: white;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  transition: background-color 0.2s ease;
+}
+
+.form-add button:hover {
+  background-color: #0056b3;
+}
+
+/* ========================================
+  Lista de Tarefas
+  ========================================
+*/
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.task-list li:last-child {
+  border-bottom: none;
+}
+
+.task-list li:hover {
+  background-color: #fafafa;
+}
+
+/* Checkbox */
+.task-list input[type="checkbox"] {
+  margin-right: 1rem;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+/* Span com o texto da tarefa e campo de edição */
+.task-list li span,
+.task-list li .edit-input {
+  flex-grow: 1;
+  color: var(--cor-texto);
+  transition: color 0.3s ease;
+}
+
+.task-list li span {
+  cursor: pointer;
+}
+
+/* Estilo para tarefas concluídas */
+.task-list li span.completed {
+  text-decoration: line-through;
+  color: var(--cor-texto-claro);
+}
+
+/* Campo de input para edição */
+.edit-input {
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 4px;
+  outline: none;
+}
+
+
+/* Botão de Deletar */
+.delete-btn {
+  border: none;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0 0.5rem;
+  margin-left: 1rem;
+  opacity: 0.5;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.task-list li:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  color: var(--cor-perigo);
+}
+
+
+
+/* Campo de input durante edição */
+.edit-input {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  outline: none;
+  flex-grow: 1;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
